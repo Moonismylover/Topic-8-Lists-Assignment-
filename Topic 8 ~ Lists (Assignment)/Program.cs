@@ -38,7 +38,19 @@
             Console.ForegroundColor = ConsoleColor.Green;
             num = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("What is the minimum value? \nInput: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            min = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("What is the maximum value? \nInput: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            max = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0, i < num, )
 
         }
 
