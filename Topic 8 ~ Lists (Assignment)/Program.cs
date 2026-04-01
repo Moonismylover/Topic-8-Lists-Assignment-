@@ -101,7 +101,9 @@
             }
 
             Console.WriteLine();
-            Console.WriteLine("")
+            Console.WriteLine("Here's a printed version of the list once again!");
+
+            for (int i = 0, i < numbers.Count;)
 
         }
 
