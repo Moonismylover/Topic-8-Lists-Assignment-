@@ -31,7 +31,7 @@
         {
             Console.Title = "Random Numbers";
 
-            int num, generated, min, max, repeatedNum;
+            int num, generated, min, max, repeatedNum, occurances = 0, replace;
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("How many numbers do you need? \nInput: ");
@@ -65,6 +65,8 @@
                 Console.Write($"{numbers[i]}");
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Let's see how many times a specific number appears in the list!");
             Console.WriteLine($"Pick a number between {min} and {max}: ");
             Console.ForegroundColor = ConsoleColor.Green;
             repeatedNum = Convert.ToInt32(Console.ReadLine());
@@ -72,9 +74,34 @@
 
             for (int i = 0; i < numbers.Count; i++)
             {
-                
-
+                if (repeatedNum == numbers[i])
+                {
+                    occurances++;
+                    Console.WriteLine("Your number appears " + occurances + " times in the list.");
+                }
+                else
+                    Console.WriteLine("Your number does not appear in the list.");
             }
+
+            Console.WriteLine();
+            Console.WriteLine("I will now replace a number of your choice with ZERO!");
+            Console.WriteLine("What number would you like to replace: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            replace = Convert.ToInt32(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                if (replace == numbers[i])
+                {
+                    numbers[i] = 0;
+                }
+                else
+                    Console.WriteLine("That number never appeared in the List, so nothing was replaced.");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("")
 
         }
 
