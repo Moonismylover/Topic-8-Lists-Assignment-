@@ -31,7 +31,7 @@
         {
             Console.Title = "Random Numbers";
 
-            int num, min, max;
+            int num, generated, min, max, repeatedNum;
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("How many numbers do you need? \nInput: ");
@@ -50,7 +50,31 @@
             Console.ForegroundColor = ConsoleColor.Green;
             max = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 0, i < num, )
+            List<int> numbers = new List<int>();
+            for (int i = 0; i < num; i++)
+            {
+                Random generator = new Random();
+                generated = generator.Next(min, max + 1);
+                numbers.Add(generated);
+            }
+
+            for (int i = 0; i < numbers.Count(); i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Your numbers are: ");
+                Console.Write($"{numbers[i]}");
+            }
+
+            Console.WriteLine($"Pick a number between {min} and {max}: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            repeatedNum = Convert.ToInt32(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                
+
+            }
 
         }
 
