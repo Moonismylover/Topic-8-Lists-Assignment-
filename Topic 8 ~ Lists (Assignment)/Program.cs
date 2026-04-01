@@ -15,6 +15,7 @@
             List<string> colors = new List<string>();
             for (int i = 0; i < 5; i++)
             {
+                Console.WriteLine();
                 Console.WriteLine("Input a color: ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 string color = Console.ReadLine();
@@ -103,7 +104,36 @@
             Console.WriteLine();
             Console.WriteLine("Here's a printed version of the list once again!");
 
-            for (int i = 0, i < numbers.Count;)
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.Write($"{numbers[i]}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Now I will reset all the values in the list to zero!");
+            
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                numbers[i] = 0;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Here's a printed version of the list once again!");
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.Write($"{numbers[i]}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("I will now fill the list again with new random numbers!");
+
+            for (int i = 0; i < num; i++)
+            {
+                Random generator = new Random();
+                generated = generator.Next(min, max + 1);
+                numbers.Add(generated);
+            }
 
         }
 
@@ -112,7 +142,14 @@
             Console.Title = "Topic 8 - Lists (Assignment)";
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Programming Assignment ");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~ Reading in Color ~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Assignment1();
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~ Random Numbers ~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Assignment2();
+            Console.WriteLine();
 
         }
     }
