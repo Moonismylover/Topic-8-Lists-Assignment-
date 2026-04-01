@@ -8,9 +8,9 @@
 
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Random generator = new Random();
-
             int num;
+
+            Random generator = new Random();
 
             List<string> colors = new List<string>();
             for (int i = 0; i < 5; i++)
@@ -19,11 +19,12 @@
                 Console.WriteLine("Input a color: ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 string color = Console.ReadLine();
+                colors.Add(color);
                 Console.ForegroundColor = ConsoleColor.Red;
             }
             Console.WriteLine();
             Console.Write($"{colors[0]}, {colors[1]}, {colors[2]}, {colors[3]}, {colors[4]}");
-            num = generator.Next(6);
+            num = generator.Next(colors.Count);
             Console.WriteLine();
             Console.WriteLine($"{colors[num]} is the color that suits you the most!!");
         }
@@ -32,38 +33,48 @@
         {
             Console.Title = "Random Numbers";
 
-            int num, generated, min, max, repeatedNum, occurances = 0, replace;
+            int num, min, max, generated, repeatedNum, occurances = 0, replace;
 
+            Random generator = new Random();
+
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("How many numbers do you need? \nInput: ");
+            Console.Write("How many numbers do you need? \nInput: ");
             Console.ForegroundColor = ConsoleColor.Green;
             num = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("What is the minimum value? \nInput: ");
+            Console.Write("What is the minimum value? \nInput: ");
             Console.ForegroundColor = ConsoleColor.Green;
             min = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("What is the maximum value? \nInput: ");
+            Console.Write("What is the maximum value? \nInput: ");
             Console.ForegroundColor = ConsoleColor.Green;
             max = Convert.ToInt32(Console.ReadLine());
 
             List<int> numbers = new List<int>();
             for (int i = 0; i < num; i++)
             {
-                Random generator = new Random();
                 generated = generator.Next(min, max + 1);
                 numbers.Add(generated);
             }
 
-            for (int i = 0; i < numbers.Count(); i++)
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Your numbers in the list include the following...");
+
+            for (int i = 0; i < numbers.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Your numbers are: ");
-                Console.Write($"{numbers[i]}");
+                Console.WriteLine();
+                Console.Write(numbers[i]);
+                if (i < numbers.Count - 1)
+                {
+                    Console.Write(", ");
+                }
             }
 
             Console.WriteLine();
@@ -130,7 +141,6 @@
 
             for (int i = 0; i < num; i++)
             {
-                Random generator = new Random();
                 generated = generator.Next(min, max + 1);
                 numbers.Add(generated);
             }
@@ -144,8 +154,6 @@
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~ Reading in Color ~~~~~~~~~~~~~~~~~~~~~~~~~");
             Assignment1();
-            Console.WriteLine();
-
             Console.WriteLine();
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~ Random Numbers ~~~~~~~~~~~~~~~~~~~~~~~~~");
             Assignment2();
