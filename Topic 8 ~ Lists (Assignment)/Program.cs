@@ -69,7 +69,6 @@
             for (int i = 0; i < numbers.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine();
                 Console.Write(numbers[i]);
                 if (i < numbers.Count - 1)
                 {
@@ -77,7 +76,7 @@
                 }
             }
 
-            Console.WriteLine();
+            Console.WriteLine(" ");
             Console.WriteLine("Let's see how many times a specific number appears in the list!");
             Console.WriteLine($"Pick a number between {min} and {max}: ");
             Console.ForegroundColor = ConsoleColor.Green;
