@@ -23,7 +23,15 @@
                 Console.ForegroundColor = ConsoleColor.Red;
             }
             Console.WriteLine();
-            Console.Write($"{colors[0]}, {colors[1]}, {colors[2]}, {colors[3]}, {colors[4]}");
+            
+            for (int i = 0; i < colors.Count; i++)
+            {
+                Console.Write(colors[i]);
+                if (i < colors.Count - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
             num = generator.Next(colors.Count);
             Console.WriteLine();
             Console.WriteLine($"{colors[num]} is the color that suits you the most!!");
@@ -76,7 +84,8 @@
                 }
             }
 
-            Console.WriteLine(" ");
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Let's see how many times a specific number appears in the list!");
             Console.WriteLine($"Pick a number between {min} and {max}: ");
             Console.ForegroundColor = ConsoleColor.Green;
@@ -88,12 +97,10 @@
                 if (repeatedNum == numbers[i])
                 {
                     occurances++;
-                    Console.WriteLine("Your number appears " + occurances + " times in the list.");
                 }
-                else
-                    Console.WriteLine("Your number does not appear in the list.");
             }
-
+            Console.WriteLine("Your number appears " + occurances + " times in the list.");
+    
             Console.WriteLine();
             Console.WriteLine("I will now replace a number of your choice with ZERO!");
             Console.WriteLine("What number would you like to replace: ");
@@ -101,14 +108,20 @@
             replace = Convert.ToInt32(Console.ReadLine());
             Console.ForegroundColor = ConsoleColor.Red;
 
+            bool found = false;
+
             for (int i = 0; i < numbers.Count; i++)
             {
                 if (replace == numbers[i])
                 {
                     numbers[i] = 0;
+                    found = true;
                 }
-                else
-                    Console.WriteLine("That number never appeared in the List, so nothing was replaced.");
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("That number never appeared in the List, so nothing was replaced.");
             }
 
             Console.WriteLine();
@@ -116,9 +129,15 @@
 
             for (int i = 0; i < numbers.Count; i++)
             {
-                Console.Write($"{numbers[i]}");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(numbers[i]);
+                if (i < numbers.Count - 1)
+                {
+                    Console.Write(", ");
+                }
             }
 
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Now I will reset all the values in the list to zero!");
             
@@ -127,21 +146,36 @@
                 numbers[i] = 0;
             }
 
-            Console.WriteLine();
             Console.WriteLine("Here's a printed version of the list once again!");
 
             for (int i = 0; i < numbers.Count; i++)
             {
-                Console.Write($"{numbers[i]}");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(numbers[i]);
+                if (i < numbers.Count - 1)
+                {
+                    Console.Write(", ");
+                }
             }
 
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("I will now fill the list again with new random numbers!");
+            Console.WriteLine("Your new numbers are: ");
 
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < numbers.Count; i++)
             {
-                generated = generator.Next(min, max + 1);
-                numbers.Add(generated);
+                numbers[i] = generator.Next(min, max + 1);
+            }
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(numbers[i]);
+                if (i < numbers.Count - 1)
+                {
+                    Console.Write(", ");
+                }
             }
 
         }
